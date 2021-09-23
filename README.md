@@ -5,8 +5,8 @@ binary with your environment.
 
 ## Versions
 
-* Buildpack:   `0.2`
-* traefik: `1.7.9` by default
+* Buildpack:   `0.3`
+* traefik: `2.5.3` by default
 
 ## Usage
 
@@ -17,11 +17,11 @@ binary into the dynos:
 $ heroku buildpacks:add https://github.com/banzera/heroku-buildpack-traefik.git
 ```
 
-If you want to use a `traefik` version other than 1.7.9, set
+If you want to use a `traefik` version other than 2.5.3, set
 `TRAEFIK_VERSION`:
 
 ```bash
-heroku config:set TRAEFIK_VERSION="1.7.8"
+heroku config:set TRAEFIK_VERSION="2.5.3"
 ```
 
 ### Clearing Repo Cache
