@@ -15,10 +15,10 @@ mkdir -p $CACHE_DIR $BIN_PATH $LIB_PATH $TMP_PATH
 if [[ -f "$ENV_DIR/TRAEFIK_VERSION" ]]; then
   TRAEFIK_VERSION=$(cat "$ENV_DIR/TRAEFIK_VERSION")
 else
-  TRAEFIK_VERSION="1.7.9"
+  TRAEFIK_VERSION="2.5.3"
 fi
 
-TRAEFIK_URL="https://github.com/containous/traefik/releases/download/v${TRAEFIK_VERSION}/traefik_linux-amd64"
+TRAEFIK_URL="https://github.com/traefik/traefik/releases/download/v${TRAEFIK_VERSION}/traefik_v${TRAEFIK_VERSION}_linux_amd64.tar.gz"
 TRAEFIK_BINARY="$CACHE_DIR/traefik_linux-amd64"
 
 BIN_DIR=$(cd $(dirname $0); pwd)
@@ -29,6 +29,9 @@ else
   echo "-----> Downloading traefik binary"
   curl -s -L $TRAEFIK_URL -o $TRAEFIK_BINARY
 fi
+
+echo "-----> Unpack tar"
+tar –xzf $TRAEFIK_BINARY
 
 echo "-----> Setting permissions"
 chmod +x $TRAEFIK_BINARY
